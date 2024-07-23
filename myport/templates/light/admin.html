@@ -1,0 +1,171 @@
+ <!-- Adjust the extend to match your base layout template -->
+
+{% block content %}
+<style>
+ 
+ body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+.background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: -1;
+}
+
+.background-video video {
+    object-fit: cover;
+    width: 100vw;
+    height: 100vh;
+    position: relative; /* Ensures video is below the gradient overlay */
+}
+
+
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label, .form-label {
+    display: block;
+    margin-bottom: .5rem;
+    border-radius: 0;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+.form-control {
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    border-radius: 0px; /* Adjust if you want any border-radius */
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+/* Additional styles for file input and button if needed */
+input[type="file"],
+button[type="submit"], .btn-primary {
+    width: 100%;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    /* Additional styling for buttons */
+    background-color: #6c0e0e; /* Button background color */
+    color: white; /* Button text color */
+    border: none;
+    border-radius: 0px; /* Keeping the 0 border-radius as per your style */
+    cursor: pointer;
+}
+
+.btn {
+    background-color: #6c0e0e;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #01050a;
+    color: #fdfdfd
+}
+
+/* Backdrop Filter */
+.container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fallback for browsers that do not support backdrop-filter */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 20px;
+        padding: 10px;
+    }
+}
+
+</style>
+
+<div class="background-video">
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="../../static/assets/img/codevid3.mp4" type="video/mp4">
+    </video>
+</div>
+
+<div class="container">
+    <h2>Create New Blog Post</h2>
+    <form method="POST" action="{{ url_for('admin') }}" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.title.label(class_='form-label') }}
+            {{ form.title(class_='form-control') }}
+        </div>
+        <div class="form-group">
+            {{ form.content.label(class_='form-label') }}
+            {{ form.content(class_='form-control') }}
+        </div>
+        <div class="form-group">
+            {{ form.image.label(class_='form-label') }}
+            {{ form.image(class_='form-control') }}
+            <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 200px; max-height: 200px;"/>
+        </div>
+        <div class="form-group">
+            {{ form.author.label(class_='form-label') }}
+            {{ form.author(class_='form-control') }}
+        </div>
+        {{ form.submit(class_='btn btn-primary') }}
+    </form>
+    
+</div>
+
+
+<script>
+    document.getElementById('image').onchange = function(event) {
+        previewImage(event);
+    };
+    
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('imagePreview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+
+    
+{% endblock %}

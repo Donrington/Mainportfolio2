@@ -1,0 +1,594 @@
+{%extends 'light/layout.html'%}
+
+{%block banner%}
+
+<div class="cover-v1 jarallax overlay"style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../static/assets/images/cs4.png'); background-position: top;" id="home-section">
+    <div class="container">
+      <div class="row align-items-center">
+          
+        <div class="col-md-7 mx-auto text-center">
+          <h1 class="heading gsap-reveal-hero text-white">CyberSage</h1>
+          <h2 class="subheading gsap-reveal-hero text-white"><b>I am Abakwe Carrington</b></h2>
+          <h2 class="subheading gsap-reveal-hero text-white"> <b> A <span class="typed" data-typed-items="Full-Stack Developer, Freelancer, Problem Solver"></b></span></h2>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- dov -->
+    <a href="#portfolio-section" class="mouse-wrap smoothscroll">
+      <span class="mouse">
+        <span class="scroll"></span>
+      </span>
+      <span class="mouse-label">Scroll</span>
+    </a>
+
+  </div>
+  <!-- END .cover-v1 -->
+
+  {%endblock%}
+
+  {%block content%}
+
+  <div class="unslate_co--section" id="portfolio-section">
+    <div class="container">
+      
+      
+      <div class="relative"><div class="loader-portfolio-wrap"><div class="loader-portfolio dark"></div></div> </div>
+      <div id="portfolio-single-holder"></div>
+
+      <div class="portfolio-wrapper">
+
+        <div class="d-flex align-items-center mb-4 gsap-reveal gsap-reveal-filter">
+          <h2 class="mr-auto heading-h2">Portfolio</h2>
+          
+          <a href="#" class="text-black js-filter d-inline-block d-lg-none">Filter</a>
+          
+          <div class="filter-wrap">
+            <div class="filter ml-auto" id="filters">
+              <a href="#" class="active" data-filter="*">All</a>
+              <a href="#" data-filter=".web">Web</a>
+              <a href="#" data-filter=".branding">Apps</a>
+              <a href="#" data-filter=".illustration">Snippets</a>
+              <a href="#" data-filter=".packaging">Packaging</a>
+            </div>
+          </div>
+
+        </div>
+
+
+        
+        <div id="posts" class="row gutter-isotope-item">
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="{{ url_for('heartfulconnect') }}" class="portfolio-item  isotope-item gsap-reveal-img" data-id="1" target="_blank">
+                <div class="overlay">
+                  <span class="wrap-icon icon-link2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>Heartful Connect</h3>
+                    <p>Web, Social Platform, Python</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/H2.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+          
+          <!-- ajax-load-page -->
+          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2 ">
+            <a href="{{url_for('estore') }}" class="portfolio-item  item-portrait isotope-item gsap-reveal-img" data-id="3" target="_blank">
+                <div class="overlay">
+                  <span class="wrap-icon icon-link2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>E-Book Store</h3>
+                    <p>E-Commerce, React, Node js.</p>
+                  </div>
+                </div>
+                <img src= "../../static/assets/img/BS1.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="{{url_for('techhub')}}" class="portfolio-item isotope-item gsap-reveal-img" data-id="4" target="_blank">
+                <div class="overlay">
+                  <span class="wrap-icon icon-link2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>TECH HUB 'Blog'</h3>
+                    <p>Web, Python(Flask)</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/T1.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+          <div class="item web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+
+            <a href="../../static/assets/img/gb4.png" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Portfolio Website">
+                <div class="overlay">
+                  <span class="wrap-icon icon-photo2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>Portfolio Website</h3>
+                    <p>Web, Python(Flask)</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/gb1.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+
+          </div>
+
+          <div class="item illustration packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="../../static/assets/img/login1.png" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Login UI">
+                <div class="overlay">
+                  <span class="wrap-icon icon-photo2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>Login UI</h3>
+                    <p>Design, illustration</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/loginui3.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="{{url_for('afrobeat')}}" class="portfolio-item  item-portrait isotope-item gsap-reveal-img" data-id="2">
+                <div class="overlay">
+                  <span class="wrap-icon icon-link2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>Lagos Afrobeat Concert</h3>
+                    <p>Web, Python</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/cm1.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="../../static/assets/img/et2.png" class="portfolio-item item-portrait isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Expense Tracker">
+                <div class="overlay">
+                  <span class="wrap-icon icon-photo2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>Expense Tracker</h3>
+                    <p>Application, javascript</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/budget1.jpeg" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href=".../../static/assets/video/kics.mp4" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="KIC'S Worldwide">
+                <div class="overlay">
+                  <span class="wrap-icon icon-play_circle_filled"></span>
+                  <div class="portfolio-item-content">
+                    <h3>KIC'S Worldwide 'E-Commerce'</h3>
+                    <p>Web, Python(Flask)</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/kicslanding.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+          <div class="item web illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="../../static/assets/img/gps3.png" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Render Packaging">
+                <div class="overlay">
+                  <span class="wrap-icon icon-photo2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>GPS Location Tracker</h3>
+                    <p>Web, React, Node js and Express Js</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/gps.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="{{url_for('amanigotravels')}}" class="portfolio-item isotope-item gsap-reveal-img" data-id="4" target="_blank">
+                <div class="overlay">
+                  <span class="wrap-icon icon-link2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>Amanigo Travels</h3>
+                    <p>Web, Python(Flask)</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/amanigo1.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="{{url_for('resuglow')}}" class="portfolio-item isotope-item gsap-reveal-img" data-id="4" target="_blank">
+                <div class="overlay">
+                  <span class="wrap-icon icon-link2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>ResuGlow</h3>
+                    <p>Web, Python(Flask)</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/resuglow1.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+        </div>
+        
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <div class="unslate_co--section">
+    <div class="container">
+      <div class="owl-carousel logo-slider">
+        <div class="logo-v1 gsap-reveal">
+          <img src="../../static/assets/img/logo/Kic's-Logo-Transparent.png" alt="Image" class="img-fluid" style="width:120px;" >
+        </div>
+        <div class="logo-v1 gsap-reveal">
+          <img src="../../static/assets/img/logo/icon1.png" alt="Image" class="img-fluid" style="width:120px;" >
+        </div>
+        <div class="logo-v1 gsap-reveal">
+          <img src="../../static/assets/img/logo/tech2.png" alt="Image" class="img-fluid"  style="width:200px;">
+        </div>
+        <div class="logo-v1 gsap-reveal">
+          <img src="../../static/assets/img/logo/cybersage2.png" alt="Image" class="img-fluid" style="width:250px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="unslate_co--section" id="about-section">
+    <div class="container">
+      
+      <div class="section-heading-wrap text-center mb-5">
+        <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">About Me</span></h2>
+        <span class="gsap-reveal"><img src="../../static/assets/images/divider.png" alt="divider" width="76"></span>
+      </div>
+      
+
+      <div class="row mt-5 justify-content-between">
+        <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-up">
+          <figure class="dotted-bg gsap-reveal-img">
+            <img src="../../static/assets/img/profilepic.jpg" alt="Image" class="img-fluid">
+          </figure>
+        </div>
+        <div class="col-lg-4 pr-lg-5">
+          <h3 class="mb-4 heading-h3"><span class="gsap-reveal">We can make it together</span></h3>
+          <p class="lead gsap-reveal">Welcome to my portfolio, where I showcase a selection of web applications I've built. Each project represents a journey of creativity and problem-solving, aimed at providing practical solutions and enhancing user experiences. From e-commerce platforms to social networking sites, I have designed and developed a diverse range of web applications. These digital creations are a testament to my passion for technology and my commitment to delivering user-friendly, efficient, and visually appealing solutions.
+         
+          <p class="gsap-reveal"><a href="../../static/assets/img/resume/ABAKWE CARRINGTON CV.pdf" class="btn btn-outline-pill btn-custom-light" target="_blank">Download my CV</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="unslate_co--section" id="services-section">
+    <div class="container">
+
+      <div class="section-heading-wrap text-center mb-5">
+        <h2 class="heading-h2 text-center divider">My Services</h2>
+        <img src="../../static/assets/images/divider.png" alt="divider" width="76">
+      </div>
+
+      <div class="row gutter-v3">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="feature-v1" data-aos="fade-up" data-aos-delay="0">
+            <div class="wrap-icon mb-3">
+              <img src="../../static/assets/images/svg/001-options.svg" alt="Image" width="45">
+            </div>
+            <h3>Web<br> Development</h3>
+            <p>Full-stack web development, creating dynamic and responsive websites with Python, Flask, and modern front-end technologies. </p>
+          </div> 
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="feature-v1" data-aos="fade-up" data-aos-delay="100">
+            <div class="wrap-icon mb-3">
+              <img src="../../static/assets/images/svg/002-chat.svg" alt="Icon" width="45">
+            </div>
+            <h3>Database <br> Management</h3>
+            <p>Efficient management of databases, including MySQL and HeidiSQL, for seamless data storage and retrieval in web applications. </p>
+          </div> 
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="feature-v1" data-aos="fade-up" data-aos-delay="200">
+            <div class="wrap-icon mb-3">
+              <img src="../../static/assets/images/svg/003-contact-book.svg" alt="Image" class="img-fluid" width="45">
+            </div>
+            <h3>API <br> Integration</h3>
+            <p>Integration of RESTful APIs and FastAPIs to connect web applications with external services and resources. </p>
+          </div> 
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="feature-v1" data-aos="fade-up" data-aos-delay="0">
+            <div class="wrap-icon mb-3">
+              <img src="../../static/assets/images/svg/004-percentage.svg" alt="Image" width="45">
+            </div>
+            <h3>Machine <br> Learning</h3>
+            <p>Applying machine learning algorithms and techniques to develop intelligent systems, predictive models, and data-driven solutions using Python libraries like TensorFlow and scikit-learn. </p>
+          </div> 
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="feature-v1" data-aos="fade-up" data-aos-delay="100">
+            <div class="wrap-icon mb-3">
+              <img src="../../static/assets/images/svg/006-goal.svg" alt="Image" width="45">
+            </div>
+            <h3>Problem<br> Solving</h3>
+            <p>Strong problem-solving abilities and analytical thinking to tackle complex challenges in web development. </p>
+          </div> 
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="feature-v1" data-aos="fade-up" data-aos-delay="200">
+            <div class="wrap-icon mb-3">
+              <img src="../../static/assets/images/svg/005-line-chart.svg" alt="Image" width="45">
+            </div>
+            <h3>Team <br> Collaboration</h3>
+            <p>Collaborative team player with a passion for learning and sharing knowledge, contributing to the success of projects.</p>
+          </div> 
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="unslate_co--section section-counter" id="skills-section">
+    <div class="container">
+      <div class="section-heading-wrap text-center mb-5">
+        <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">My Skills</span></h2>
+        <span class="gsap-reveal"><img src="../../static/assets/images/divider.png" alt="divider" width="76"></span>
+      </div>
+
+
+      <div class="row pt-5">
+        <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+          <div class="counter-v1 text-center">
+            <span class="number-wrap">
+              <span class="number number-counter" data-number="90">0</span>
+              <span class="append-text">%</span>
+            </span>
+            <span class="counter-label">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="counter-v1 text-center">
+            <span class="number-wrap">
+              <span class="number number-counter" data-number="99">0</span>
+              <span class="append-text">%</span>
+            </span>
+            <span class="counter-label">Back-End Development(Python)</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+          <div class="counter-v1 text-center">
+            <span class="number-wrap">
+              <span class="number number-counter" data-number="95">0</span>
+              <span class="append-text">%</span>
+            </span>
+            <span class="counter-label">JavaScript/jQuery/AJAX</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 mb-5 mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="counter-v1 text-center">
+            <span class="number-wrap">
+              <span class="number number-counter" data-number="100">0</span>
+              <span class="append-text">%</span>
+            </span>
+            <span class="counter-label">Database Management(MYSQL)</span>
+          </div>
+        </div>
+
+        <div class="col-6 col-sm-6  mb-lg-0 col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+          <div class="counter-v1 text-center">
+            <span class="number-wrap">
+              <span class="number number-counter" data-number="100">0</span>
+              <span class="append-text">%</span>
+            </span>
+            <span class="counter-label">React</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END .counter -->
+
+  <div class="unslate_co--section" id="testimonial-section">
+    <div class="container">
+      <div class="section-heading-wrap text-center mb-5">
+        <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">My Happy Clients</span></h2>
+        <p>Here's what some of my satisfied clients have to say about my work as a full-stack developer.</p>
+        <span class="gsap-reveal"><img src="../../static/assets/images/divider.png" alt="divider" width="76"></span>
+      </div>
+    </div>
+
+    <div class="owl-carousel testimonial-slider">
+      <div>
+        <div class="testimonial-v1">
+          <div class="testimonial-inner-bg">
+            <span class="quote">&ldquo;</span>
+            <blockquote>
+              I can't thank you enough for the amazing work you did on our project. Your full-stack development skills are top-notch, and you exceeded our expectations. Our website now runs smoothly, and our users love it!
+            </blockquote>
+          </div>
+          
+          <div class="testimonial-author-info">
+            <img src="../../static/assets/img/testimonials/pic.jpg" alt="Image">
+            <h3>Stella</h3>
+            <span class="d-block position">CEO, C SQUARE Savory</span>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <div class="testimonial-v1">
+          <div class="testimonial-inner-bg">
+            <span class="quote">&ldquo;</span>
+            <blockquote>
+              I'm incredibly impressed with the work you've done. Your  expertise has transformed our platform. We've seen a significant increase in user engagement, and the new features you implemented are fantastic!
+            </blockquote>
+          </div>
+          
+          <div class="testimonial-author-info">
+            <img src="../../static/assets/img/testimonials/babe1.jpg" alt="Image">
+            <h3>Cynthia</h3>
+            <span class="d-block position">Empress Satvia Wears</span>
+          </div>
+
+        </div>
+      </div>
+      <div>
+        <div class="testimonial-v1">
+          <div class="testimonial-inner-bg">
+            <span class="quote">&ldquo;</span>
+            <blockquote>
+              Your work as a full-stack developer has been a game-changer for our business. The new features you added have streamlined our operations, and our clients are thrilled with the improved user experience. Thank you!
+            </blockquote>
+          </div>
+          
+          <div class="testimonial-author-info">
+            <img src="../../static/assets/img/testimonials/b3.jpg" alt="Image">
+            <h3>Godsent</h3>
+            <span class="d-block position">CEO Xtus Connect & Data Analyst</span>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div>
+        <div class="testimonial-v1">
+          <div class="testimonial-inner-bg">
+            <span class="quote">&ldquo;</span>
+            <blockquote>
+              Your skills are unmatched. The project you delivered exceeded our expectations, and it has had a significant impact on our business. We can't thank you enough for your dedication and expertise.
+            </blockquote>
+          </div>
+          
+          <div class="testimonial-author-info">
+            <img src="../../static/assets/img/testimonials/alpha.jpg" alt="Image">
+            <h3>Laurence</h3>
+            <span class="d-block position">CEO, ALPHA LTD</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- END testimonial -->
+
+  <div class="unslate_co--section" id="journal-section">
+    <div class="container">
+      <div class="section-heading-wrap text-center mb-5">
+        <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">My Journal</span></h2>
+        <span class="gsap-reveal"><img src="../../static/assets/images/divider.png" alt="divider" width="76"></span>
+      </div>
+  
+      
+      <div class="row gutter-v4">
+        {% for post in posts %}
+        <div class="col-sm-6 col-md-6 col-lg-{{ '8' if loop.index == 0 else '12' }} blog-post-entry" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+          <a href="{{ url_for('blog_single', post_id=post.id) }}" class="grid-item blog-item w-100 h-100">
+            <div class="overlay">
+              <div class="portfolio-item-content">
+                <h3>{{ post.title }}</h3>
+                <p class="post-meta">By {{ post.author_name }} <span class="small">&bullet;</span> {{ post.read_time }} mins read</p>
+              </div>
+            </div>
+            <img src="{{ post.image_url }}" class="lazyload" alt="Image" />
+          </a>
+        </div>
+      {% else %}
+        <p>No posts to display.</p>
+      {% endfor %}
+      </div>
+      </div>
+      </div>
+ 
+      
+  
+  <!-- END blog posts -->
+
+
+  <div class="unslate_co--section" id="contact-section">
+    <div class="container">
+      <div class="section-heading-wrap text-center mb-5">
+        <h2 class="heading-h2 text-center divider"><span class="gsap-reveal">Get In Touch</span></h2>
+        <span class="gsap-reveal"><img src="../../static/assets/images/divider.png" alt="divider" width="76"></span>
+      </div>
+
+
+      <div class="row justify-content-between">
+        
+        <div class="col-md-6">
+          <form method="POST" class="form-outline-style-v1"  action="https://formsubmit.co/Carryoby@gmail.com">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="form-group row mb-0">
+
+              <div class="col-lg-6 md-12 form-group gsap-reveal">
+                <label for="name">Name</label>
+                <input name="name" type="text" class="form-control" id="name">
+              </div>
+              <div class="col-lg-6 md-12 form-group gsap-reveal">
+                <label for="phone">Phone</label>
+                <input name="phone" type="text" class="form-control" id="phone">
+              </div>
+              <div class="col-lg-6 md-12 form-group gsap-reveal">
+                <label for="email">Email</label>
+                <input name="email" type="email" class="form-control" id="email">
+              </div>
+              <div class="col-lg-6 md-12 form-group gsap-reveal">
+                <label for="subject">Subject</label>
+                <input name="subject" type="text" class="form-control" id="subject">
+              </div>
+
+              <div class="col-lg-12 md-12 form-group gsap-reveal">
+                <label for="message">Write your message...</label>
+                <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group row gsap-reveal">
+                <div class="col-md-12 d-flex align-items-center">
+                  <input type="submit" class="btn btn-outline-pill btn-custom-light mr-3" value="Send Message">
+                </div>
+              </div>
+          </form>
+      
+
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-info-v1">
+            <div class="gsap-reveal d-block">
+              <span class="d-block contact-info-label">Email</span>
+              <a href="#" class="contact-info-val">Carryoby@gmail.com</a>
+            </div>
+            <div class="gsap-reveal d-block">
+              <span class="d-block contact-info-label">Phone</span>
+              <a href="#" class="contact-info-val">+2347025495506</a>
+            </div>
+            <!-- <div class="gsap-reveal d-block">
+              <span class="d-block contact-info-label">Address</span>
+              <address class="contact-info-val">Ikeja <br>Lagos, Nigeria</address>
+            </div> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </div> 
+
+  
+
+
+  {%endblock%}
+
+
+
+
+
+
+
+
+
+
