@@ -36,3 +36,5 @@ wsproto==1.2.0
 WTForms==3.0.1
 proglog==0.1.10
 psycopg2-binary
+pycparser==2.22
+PySocks==1.7.1
