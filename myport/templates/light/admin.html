@@ -1,22 +1,19 @@
- <!-- Adjust the extend to match your base layout template -->
-
 {% block content %}
 <style>
- 
- body, html {
+body, html {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    font-family: Arial, sans-serif;
 }
-
 
 .background-video {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
     z-index: -100;
     display: flex;
@@ -42,20 +39,35 @@
     position: relative; /* Ensures video is below the gradient overlay */
 }
 
-
 .container {
     position: relative;
     z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9); /* Fallback for browsers that do not support backdrop-filter */
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 label, .form-label {
     display: block;
     margin-bottom: .5rem;
-    border-radius: 0;
+    font-weight: bold;
+    color: #333;
 }
 
 input[type="text"],
@@ -63,25 +75,42 @@ input[type="email"],
 textarea,
 .form-control {
     width: 100%;
-    padding: .5rem;
+    padding: .75rem;
     border: 1px solid #ccc;
-    border-radius: 0px; /* Adjust if you want any border-radius */
+    border-radius: 6px;
     box-sizing: border-box;
     margin-bottom: 1rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-/* Additional styles for file input and button if needed */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+.form-control:focus {
+    border-color: #6c0e0e;
+    outline: none;
+}
+
+/* Styles for file input and button */
 input[type="file"],
 button[type="submit"], .btn-primary {
     width: 100%;
-    padding: .5rem;
+    padding: .75rem;
     margin-bottom: 1rem;
-    /* Additional styling for buttons */
     background-color: #6c0e0e; /* Button background color */
     color: white; /* Button text color */
     border: none;
-    border-radius: 0px; /* Keeping the 0 border-radius as per your style */
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+input[type="file"]:focus,
+button[type="submit"]:focus,
+.btn-primary:focus {
+    outline: none;
 }
 
 .btn {
@@ -89,38 +118,42 @@ button[type="submit"], .btn-primary {
     color: white;
     padding: 10px 24px;
     border: none;
-    border-radius: 0px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
     background-color: #01050a;
-    color: #fdfdfd
+    color: #fdfdfd;
 }
 
 /* Backdrop Filter */
-.container {
-    background-color: rgba(255, 255, 255, 0.8); /* Fallback for browsers that do not support backdrop-filter */
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 800px;
-    margin: auto;
-    margin-top: 50px;
-}
-
 @media (max-width: 768px) {
     .container {
         margin-top: 20px;
-        padding: 10px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
     }
 }
 
+#imagePreview {
+    display: none;
+    max-width: 200px;
+    max-height: 200px;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 </style>
 
 <div class="background-video">
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="../../static/assets/img/codevid3.mp4" type="video/mp4">
+        <source src="https://videocdn.cdnpk.net/videos/346155fd-7849-4515-88cc-1dce530ad486/horizontal/previews/clear/large.mp4?token=exp=1721793436~hmac=5b28fbcabb7c7ac9e222a2e9c2ba9637cc6a76a712c90b4c5f17c6cc14aed4d5" type="video/mp4">
     </video>
 </div>
 
@@ -138,8 +171,8 @@ button[type="submit"], .btn-primary {
         </div>
         <div class="form-group">
             {{ form.image.label(class_='form-label') }}
-            {{ form.image(class_='form-control') }}
-            <img id="imagePreview" src="#" alt="Image Preview" style="display: none; max-width: 200px; max-height: 200px;"/>
+            {{ form.image(class_='form-control', id='imageInput') }}
+            <img id="imagePreview" src="#" alt="Image Preview"/>
         </div>
         <div class="form-group">
             {{ form.author.label(class_='form-label') }}
@@ -147,25 +180,22 @@ button[type="submit"], .btn-primary {
         </div>
         {{ form.submit(class_='btn btn-primary') }}
     </form>
-    
 </div>
 
-
 <script>
-    document.getElementById('image').onchange = function(event) {
-        previewImage(event);
+document.getElementById('imageInput').onchange = function(event) {
+    previewImage(event);
+};
+
+function previewImage(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+        var output = document.getElementById('imagePreview');
+        output.src = reader.result;
+        output.style.display = 'block';
     };
-    
-    function previewImage(event) {
-        var reader = new FileReader();
-        reader.onload = function(){
-            var output = document.getElementById('imagePreview');
-            output.src = reader.result;
-            output.style.display = 'block';
-        };
-        reader.readAsDataURL(event.target.files[0]);
-    }
+    reader.readAsDataURL(event.target.files[0]);
+}
 </script>
 
-    
 {% endblock %}
