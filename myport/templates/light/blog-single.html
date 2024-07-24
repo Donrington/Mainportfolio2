@@ -49,18 +49,18 @@
     .form-container .form-control:focus {
         background-color: #495057;
         color: white;
-        border-color: #00b4d8;
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        border-color: rgb(124, 21, 21);
+        box-shadow: 0 0 0 0.2rem rgb(45, 4, 4);
     }
 
     .form-container .btn-primary {
-        background-color: #00b4d8;
+        background-color: rgb(124, 21, 21);
         border: none;
         transition: background-color 0.3s ease;
     }
 
     .form-container .btn-primary:hover {
-        background-color: #0096c7;
+        background-color: rgb(124, 21, 21);
     }
 
     @keyframes fadeInUp {
@@ -103,7 +103,7 @@
     }
 
     .comment-list .comment-body h3 {
-        color: #00b4d8;
+        color: rgb(124, 21, 21);
     }
 
     .comment-list .comment-body .meta {
@@ -115,7 +115,7 @@
     }
 
     .comment-list .comment-body .reply {
-        color: #00b4d8;
+        color: rgb(124, 21, 21);
     }
 
     .comment-list .comment-body .reply:hover {
@@ -229,26 +229,26 @@
             {% endfor %}
         </ul>
         <!-- Comment form -->
-       
+        <div class="form-container mb-5">
+          <h3 class="text-center">Leave a Comment</h3>
+          <form id="commentForm" method="post" action="{{ url_for('submit_comment', post_id=post.id) }}">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+              <div class="mb-3">
+                  <label for="name" class="form-label">Your Name</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+              </div>
+              <div class="mb-3">
+                  <label for="comment" class="form-label">Your Comment</label>
+                  <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
+              </div>
+              <div class="text-right">
+                  <button type="submit" class="btn btn-primary" id="submitComment">Submit Comment</button>
+              </div>
+          </form>
+        </div>
     </div>
 </div>
 
-<div class="form-container mb-5">
-  <h3 class="text-center">Leave a Comment</h3>
-  <form id="commentForm" method="post" action="{{ url_for('submit_comment', post_id=post.id) }}">
-      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-      <div class="mb-3">
-          <label for="name" class="form-label">Your Name</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
-      </div>
-      <div class="mb-3">
-          <label for="comment" class="form-label">Your Comment</label>
-          <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Write your comment here..." required></textarea>
-      </div>
-      <div class="text-right">
-          <button type="submit" class="btn btn-primary" id="submitComment">Submit Comment</button>
-      </div>
-  </form>
-</div>
+
 
 {% endblock %}
