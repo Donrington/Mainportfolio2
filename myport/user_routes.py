@@ -21,6 +21,7 @@ from sqlalchemy import func
 from datetime import datetime
 
 
+socketio = SocketIO(app)
 
 @app.route("/", methods=['GET', 'POST'])
 def homepage():
