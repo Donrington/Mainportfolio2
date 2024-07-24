@@ -39,6 +39,14 @@ def heartfulconnect():
 def amanigotravels():
     return render_template("light/portfolio-single-5.html", pagename='AmanigoTravels| Cybersage')
 
+@app.route("/ExpenseTracker/", methods=['GET', 'POST'])
+def expensetracker():
+    return render_template("light/portfolio-single-7.html", pagename='Navigation | Cybersage')
+
+
+@app.route("/GPS/", methods=['GET', 'POST'])
+def locationtracker():
+    return render_template("light/portfolio-single-8.html", pagename='GPS| Cybersage')
 
 @app.route("/Resuglow/", methods=['GET', 'POST'])
 def resuglow():
