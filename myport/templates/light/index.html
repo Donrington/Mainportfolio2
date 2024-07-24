@@ -609,7 +609,7 @@
       <div class="row gutter-v4">
         {% for post in posts %}
         <div class="col-sm-6 col-md-6 col-lg-{{ '8' if loop.index == 0 else '12' }} blog-post-entry" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
-          <a href="{{ url_for('blog_single', post_id=post.id) }}" class="grid-item blog-item w-100 h-100">
+          <a href="{{ url_for('blog_single', post_id=post.id) }}" class="grid-item blog-item w-100 h-100" target="_blank">
             <div class="overlay">
               <div class="portfolio-item-content">
                 <h3>{{ post.title }}</h3>
