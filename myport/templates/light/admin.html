@@ -153,10 +153,9 @@ button[type="submit"]:focus,
 
 <div class="background-video">
     <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-        <source src="https://videocdn.cdnpk.net/videos/346155fd-7849-4515-88cc-1dce530ad486/horizontal/previews/clear/large.mp4?token=exp=1721793436~hmac=5b28fbcabb7c7ac9e222a2e9c2ba9637cc6a76a712c90b4c5f17c6cc14aed4d5" type="video/mp4">
+        <source src="../../static/assets/img/codevid3.mp4" type="video/mp4">
     </video>
 </div>
-
 
 <div class="container">
     <h2>Create New Blog Post</h2>
@@ -169,6 +168,10 @@ button[type="submit"]:focus,
         <div class="form-group">
             {{ form.content.label(class_='form-label')|safe }}
             {{ form.content(class_='form-control')|safe }}
+        </div>
+        <div class="form-group">
+            {{ form.image_url.label(class_='form-label')|safe }}
+            {{ form.image_url(class_='form-control')|safe }}
         </div>
         <div class="form-group">
             {{ form.image.label(class_='form-label')|safe }}

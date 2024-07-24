@@ -100,6 +100,7 @@ def admin():
         title = request.form['title']
         content = request.form['content']
         image = request.files['image']
+        image_url_input = request.form['image_url']  # Get the image URL input
         author = request.form['author']
         read_time = calculate_read_time(content)  # Dynamically calculate read time
 
@@ -109,6 +110,8 @@ def admin():
             save_path = os.path.join(current_app.config['USER_PROFILE_PATH'], filename)
             image.save(save_path)
             image_url = url_for('static', filename=os.path.join('assets/images/profile/', filename))
+        elif image_url_input:  # Use the URL input if no file is uploaded
+            image_url = image_url_input
 
         new_post = BlogPost(title=title, content=content, image_url=image_url,
                             post_date=datetime.now(), read_time=read_time, author=author)
@@ -120,6 +123,7 @@ def admin():
         return redirect(url_for('homepage'))
 
     return render_template('light/admin.html', form=form)
+
 
 
 def calculate_read_time(content):
