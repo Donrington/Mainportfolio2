@@ -143,10 +143,10 @@
           <div class="filter-wrap">
             <div class="filter ml-auto" id="filters">
               <a href="#" class="active" data-filter="*">All</a>
-              <a href="#" data-filter=".web">Web</a>
-              <a href="#" data-filter=".branding">Apps</a>
-              <a href="#" data-filter=".illustration">Snippets</a>
-              <a href="#" data-filter=".packaging">Packaging</a>
+              <a href="#" data-filter=".web">Deployed</a>
+              <a href="#" data-filter=".branding">Static</a>
+              <a href="#" data-filter=".illustration">Web Apps</a>
+              <a href="#" data-filter=".packaging">Not Deployed</a>
             </div>
           </div>
 
@@ -155,7 +155,7 @@
 
         
         <div id="posts" class="row gutter-isotope-item">
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href="{{ url_for('heartfulconnect') }}" class="portfolio-item  isotope-item gsap-reveal-img" data-id="1" target="_blank">
                 <div class="overlay">
                   <span class="wrap-icon icon-link2"></span>
@@ -182,7 +182,7 @@
               </a>
           </div>
 
-          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href="{{url_for('techhub')}}" class="portfolio-item isotope-item gsap-reveal-img" data-id="4" target="_blank">
                 <div class="overlay">
                   <span class="wrap-icon icon-link2"></span>
@@ -195,7 +195,7 @@
               </a>
           </div>
 
-          <div class="item web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item packaging illustration col-md-6 col-lg-4 isotope-mb-2">
 
             <a href="../../static/assets/img/gb4.png" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Portfolio Website">
                 <div class="overlay">
@@ -210,7 +210,7 @@
 
           </div>
 
-          <div class="item illustration packaging col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item branding illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href="../../static/assets/img/login1.png" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Login UI">
                 <div class="overlay">
                   <span class="wrap-icon icon-photo2"></span>
@@ -222,6 +222,22 @@
                 <img src="../../static/assets/img/loginui3.png" class="lazyload  img-fluid" alt="Images" />
               </a>
           </div>
+
+          
+          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="https://www.loginui.onrender.com" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="Login UI">
+                <div class="overlay">
+                  <span class="wrap-icon icon-photo2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>Registration UI</h3>
+                    <p>Design, illustration</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/loginui22.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+
+   
 
    
 
@@ -239,7 +255,7 @@
           </div>
 
       
-          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item packaging illustration col-md-6 col-lg-4 isotope-mb-2">
             <a href="{{url_for('expensetracker')}}" class="portfolio-item isotope-item gsap-reveal-img" data-id="4" target="_blank">
                 <div class="overlay">
                   <span class="wrap-icon icon-link2"></span>
@@ -253,7 +269,7 @@
           </div>
 
 
-          <div class="item web branding col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href=".../../static/assets/video/kics.mp4" class="portfolio-item isotope-item gsap-reveal-img" data-fancybox="gallery" data-caption="KIC'S Worldwide">
                 <div class="overlay">
                   <span class="wrap-icon icon-play_circle_filled"></span>
@@ -266,7 +282,7 @@
               </a>
           </div>
 
-          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href="{{url_for('locationtracker')}}" class="portfolio-item isotope-item gsap-reveal-img" data-id="4" target="_blank">
                 <div class="overlay">
                   <span class="wrap-icon icon-link2"></span>
@@ -319,7 +335,7 @@
               </a>
           </div>
 
-          <div class="item branding web col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+          <div class="item packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
             <a href="{{url_for('resuglow')}}" class="portfolio-item isotope-item gsap-reveal-img" data-id="4" target="_blank">
                 <div class="overlay">
                   <span class="wrap-icon icon-link2"></span>
@@ -329,6 +345,18 @@
                   </div>
                 </div>
                 <img src="../../static/assets/img/resuglow1.png" class="lazyload  img-fluid" alt="Images" />
+              </a>
+          </div>
+          <div class="item packaging illustration col-sm-6 col-md-6 col-lg-4 isotope-mb-2">
+            <a href="{{url_for('coderscoffee')}}" class="portfolio-item isotope-item gsap-reveal-img" data-id="4" target="_blank">
+                <div class="overlay">
+                  <span class="wrap-icon icon-link2"></span>
+                  <div class="portfolio-item-content">
+                    <h3>CodersCoffee</h3>
+                    <p>Web, React</p>
+                  </div>
+                </div>
+                <img src="../../static/assets/img/coffee1.png" class="lazyload  img-fluid" alt="Images" />
               </a>
           </div>
 

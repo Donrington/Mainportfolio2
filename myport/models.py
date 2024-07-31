@@ -22,3 +22,5 @@ class Comment(db.Model):
     comment = db.Column(db.Text, nullable=False)
     comment_date = db.Column(db.DateTime, nullable=False)
     blog_post = db.relationship('BlogPost', backref=db.backref('comments', lazy=True))
+
+

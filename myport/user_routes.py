@@ -43,6 +43,9 @@ def amanigotravels():
 def expensetracker():
     return render_template("light/portfolio-single-7.html", pagename='Navigation | Cybersage')
 
+@app.route("/coderscoffee/", methods=['GET', 'POST'])
+def coderscoffee():
+    return render_template("light/portfolio-single-9.html", pagename='CodersCoffee | Cybersage')
 
 @app.route("/GPS/", methods=['GET', 'POST'])
 def locationtracker():
