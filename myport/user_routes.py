@@ -88,7 +88,7 @@ def blog_single(post_id):
 
 
 UPLOAD_FOLDER = 'path/to/upload/directory'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
